@@ -60,12 +60,10 @@ def delete_keys_list(cert_list, client):
 def delete_certs(cert_list, client):
    for cert in cert_list:
       stdin, stdout, stderr = client.exec_command("tmsh delete sys crypto cert " + cert)
-      print (stdout.read())
 
 def delete_keys(key_list, client):
    for key in key_list:
       stdin, stdout, stderr = client.exec_command("tmsh delete sys crypto key " + key)
-      print (stdout.read())
 
 def sync_save(client):
    stdin, stdout, stderr = client.exec_command("tmsh sho cm device-group|grep -iE -m 1 'failover|HA'|awk '{print $3}'")
